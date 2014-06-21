@@ -70,9 +70,13 @@ class News extends Plugin {
     }
     private function mapParams($value) {
         $result = $value;
-        $result = str_ireplace('|titel=','|title=',$result);
+        if (substr($result,0,6) == 'titel=') {
+            $result = 'title='.substr($result,6);
+        }
         $result = str_ireplace('|datum=','|date=',$result);
-        $result = str_ireplace('|zeige=','|show=',$result);
+        if (substr($result,0,6) == 'zeige=') {
+            $result = 'show='.substr($result,6);
+        }
         $result = str_ireplace('|seite=','|page=',$result);
         return $result;
     }

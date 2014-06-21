@@ -18,11 +18,8 @@ use Masterminds\HTML5;
 class News extends Plugin {
     
     private $lang_admin;
-    private $lang_cms;
         
     function getContent($value) {
-      global $CMS_CONF;
-      $this->lang_cms = new Language($this->PLUGIN_SELF_DIR."sprachen/cms_language_".$CMS_CONF->get("cmslanguage").".txt");
       $default = array('text' => '', 'date' => '', 'title' => '', 'show' => '-1', 'page' => '');
       $values = $this->makeUserParaArray($this->mapParams($value),$default,'|');
       if ($values['show'] == -1) {
@@ -30,7 +27,6 @@ class News extends Plugin {
       }else{ 
           return $this->getHTMLNewsShow($values);
       }
-      //return '<div class="DemoPlugin">'.$this->settings->get("text").' <span style="color:#'.$values['Farbe'].'">'.$values['Text'].'</span></div>';
     }
     function getConfig() {
         $config = array();

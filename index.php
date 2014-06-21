@@ -23,7 +23,7 @@ class News extends Plugin {
     function getContent($value) {
       global $CMS_CONF;
       $this->lang_cms = new Language($this->PLUGIN_SELF_DIR."sprachen/cms_language_".$CMS_CONF->get("cmslanguage").".txt");
-      $default = array('text' => '', 'date' => '', 'title' => '', 'show' => '-1', 'site' => '');
+      $default = array('text' => '', 'date' => '', 'title' => '', 'show' => '-1', 'page' => '');
       $values = $this->makeUserParaArray($this->mapParams($value),$default,'|');
       if ($values['show'] == -1) {
           return $this->getHTMLNewsDef($values);
@@ -64,7 +64,7 @@ class News extends Plugin {
             array("http://software.black-night.org","Software by black-night"),
             // Platzhalter => Kurzbeschreibung, für Inhaltseditor
             array('{News|title=...|date=...|text=...}' => $this->lang_admin->getLanguageValue("plugin_news_def"),
-                  '{News|show=...|site=...}' => $this->lang_admin->getLanguageValue("plugin_news_show"))
+                  '{News|show=...|page=...}' => $this->lang_admin->getLanguageValue("plugin_news_show"))
             );
         return $info;
     }
@@ -73,7 +73,7 @@ class News extends Plugin {
         $result = str_ireplace('|titel=','|title=',$result);
         $result = str_ireplace('|datum=','|date=',$result);
         $result = str_ireplace('|zeige=','|show=',$result);
-        $result = str_ireplace('|seite=','|site=',$result);
+        $result = str_ireplace('|seite=','|page=',$result);
         return $result;
     }
     private function getHTMLNewsDef($values) {
@@ -93,7 +93,7 @@ class News extends Plugin {
     private function getHTMLNewsShow($values) {
         global $CatPage;
         $result = '<article class="bnnews-show">';
-        list($cat,$page) = $CatPage->split_CatPage_fromSyntax($values['site']);
+        list($cat,$page) = $CatPage->split_CatPage_fromSyntax($values['page']);
         $html = $CatPage->get_pagecontent($cat,$page,true,true);
         $html5 = new HTML5();
         $dom = $html5->loadHTML($html);

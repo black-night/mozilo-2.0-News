@@ -1,0 +1,7 @@
+plugin_name              = <b>News Plugin</b>
+plugin_desc              = Diese Plugin ermöglicht das einfache einbinden von Neuigkeiten/News<br /><br /><span style=\"font-weight:bold;\">Nutzung:</span><br />Definition des Newseintrages: <b>{News|title=...|date=...|text=...}</b> Parameter: <br />title/titel - Überschrift des Eintrags<br />date/datum - Datum des Eintrags (optional)<br />text - Inhalt des Eintrags<br /><br />Vorschau auf einen Newseintrag: <b>{News|show=...|site=...}</b> Parameter: <br />show/zeige - Der wievielte Eintrag soll angezeigt werden<br />site/seite - moziloCMS Seite wo sich die Einträge befinden.
+plugin_news_def          = Definition eines Newseintrag.
+plugin_news_show         = Anzeige es Newseintrages.
+config_previewlength     = Anzahl der Zeichen, die in der Vorschau maximal angezeigt werden.
+config_number_regex_error= nur Zahlen erlaubt!
+config_readon            = Linktext zum weiterlesen.

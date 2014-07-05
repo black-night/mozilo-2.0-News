@@ -1,13 +1,5 @@
 <?php if(!defined('IS_CMS')) die();
-require_once BASE_DIR.PLUGIN_DIR_NAME.'/News/HTML5Parser/HTML5.php';
-foreach (glob(BASE_DIR.PLUGIN_DIR_NAME.'/News/HTML5Parser/HTML5/*.php') as $filename) {require_once $filename;}
-require_once BASE_DIR.PLUGIN_DIR_NAME.'/News/HTML5Parser/HTML5/Parser/InputStream.php';
-require_once BASE_DIR.PLUGIN_DIR_NAME.'/News/HTML5Parser/HTML5/Parser/EventHandler.php';
-require_once BASE_DIR.PLUGIN_DIR_NAME.'/News/HTML5Parser/HTML5/Parser/StringInputStream.php';
-foreach (glob(BASE_DIR.PLUGIN_DIR_NAME.'/News/HTML5Parser/HTML5/Parser/*.php') as $filename) {require_once $filename;}
-require_once BASE_DIR.PLUGIN_DIR_NAME.'/News/HTML5Parser/HTML5/Serializer/RulesInterface.php';
-foreach (glob(BASE_DIR.PLUGIN_DIR_NAME.'/News/HTML5Parser/HTML5/Serializer/*.php') as $filename) {require_once $filename;}
-use Masterminds\HTML5;
+require "vendor/autoload.php";
 
 /***************************************************************
  *
@@ -49,7 +41,7 @@ class News extends Plugin {
         $this->lang_admin = new Language($this->PLUGIN_SELF_DIR."sprachen/admin_language_".$ADMIN_CONF->get("language").".txt");
         $info = array(
             // Plugin-Name (wird in der Pluginübersicht im Adminbereich angezeigt)
-            $this->lang_admin->getLanguageValue("plugin_name")." \$Revision: 1 $",
+            $this->lang_admin->getLanguageValue("plugin_name")." \$Revision: 2 $",
             // CMS-Version
             "2.0",
             // Kurzbeschreibung

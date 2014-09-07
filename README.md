@@ -3,6 +3,8 @@ mozilo-2.0-News
 Plugin für moziloCMS 2.0 (https://github.com/mozilo/mozilo2.0)
 Zur einfachen Darstellung von Newsbeiträgen.
 
+**WICHTIG!** Das Plugin benötigt PHP 5.3.0 oder neuer.
+
 
 * Lizenz: 
       * LGPL 3.0 (http://www.gnu.org/licenses/lgpl) (Deutsch: http://www.gnu.de/documents/lgpl-3.0.de.html)
